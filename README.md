@@ -1,24 +1,43 @@
-# README
+### Association
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- has_many :items
 
-Things you may want to cover:
+## items テーブル
 
-* Ruby version
+| Column                | Type       | Options           |
+| --------------------- | ---------- | ----------------- |
+| name                  | string     | null: false       |
+| info                  | text       | null: false       |
+| category_id           | integer    | null: false       |
+| item_status_id        | integer    | null: false       |
+| fee_status_id         | integer    | null: false       |
+| prefecture_id         | integer    | null: false       |
+| scheduled_delivery_id | integer    | null: false       |
+| price                 | integer    | null: false       |
+| user                  | references | foreign_key: true |
 
-* System dependencies
 
-* Configuration
+### Association
 
-* Database creation
+- belongs_to :user
+- has_many   :posts
 
-* Database initialization
+## orders テーブル
 
-* How to run the test suite
+| Column             | Type       | Options           |
+| ------------------ | ---------- | ----------------- |
+| price              | integer    | null: false       |
+| item               | references | foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :item
+  has_one:address
 
-* Deployment instructions
+## addresses テーブル
+| prefecture_id      | integer    | null: false       |
+| city               | string     | null: false       |
+| address            | string     | null: false       |
+| building           | string     |                   |
+| phone_number       | string     | null: false       |
+| order               | references | foreign_key: true |
 
-* ...
+- belongs_to :order
