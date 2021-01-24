@@ -119,6 +119,9 @@ a {
 }
 
 /* メイン */
+.main{
+  display:flex;
+}
 
 .greeting{
   margin-bottom: 20px;
