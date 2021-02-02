@@ -1,11 +1,9 @@
-＜メニュー画面＞
 <div class="inner">
-<%# ログインしているときは以下を表示する %>
-  <%# <div class="greeting"> %>
-    <%# こんにちは、 %>
-    <%# <%= link_to "ユーザー名さん", root_path, class: :greeting__link%>
-  <%# </div> %>
-<%# // ログインしているときは上記を表示する %>
+
+  <div class="greeting">
+    こんにちは、
+    <%= link_to "#{current_user.name}", root_path, class: :greeting__link %>
+  </div>
   <div class="card__wrapper">
   </div>
 </div>
