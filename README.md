@@ -1,43 +1,36 @@
 ### Association
-
-- has_many :items
-
-## items テーブル
+- has_many :works
+- has_many :comments
+## user テーブル
 
 | Column                | Type       | Options           |
 | --------------------- | ---------- | ----------------- |
 | name                  | string     | null: false       |
-| info                  | text       | null: false       |
-| category_id           | integer    | null: false       |
-| item_status_id        | integer    | null: false       |
-| fee_status_id         | integer    | null: false       |
-| prefecture_id         | integer    | null: false       |
-| scheduled_delivery_id | integer    | null: false       |
-| price                 | integer    | null: false       |
-| user                  | references | foreign_key: true |
+| profile               | text       | null: false       |
+| position              | text       | null: false       |
+| email                 | string     | null: false       |
+| encrypted_password    | string     | null: false       |
 
 
 ### Association
-
 - belongs_to :user
-- has_many   :posts
-
-## orders テーブル
+- has_many   :comments
+- has_one_attached :image
+## works テーブル
 
 | Column             | Type       | Options           |
 | ------------------ | ---------- | ----------------- |
-| price              | integer    | null: false       |
-| item               | references | foreign_key: true |
+| title              | string     | null: false       |
+| info               | text       | foreign_key: true |
+| category           | string     | foreign_key: true |
+| url                | string     | foreign_key: true |
+| user               | references | foreign_key: true |
 
-- belongs_to :item
-  has_one:address
+### Association
+- belongs_to :user
+- belongs_to :work
+## comments テーブル
+| comments          | text       | null: false       |
+| user              | references | foreign_key : true |
+| work              | references | foreign_key : true |
 
-## addresses テーブル
-| prefecture_id      | integer    | null: false       |
-| city               | string     | null: false       |
-| address            | string     | null: false       |
-| building           | string     |                   |
-| phone_number       | string     | null: false       |
-| order               | references | foreign_key: true |
-
-- belongs_to :order
