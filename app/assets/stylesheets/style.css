@@ -119,6 +119,11 @@ a {
   background: #F0810F;
 }
 
+/* メイン未ログイン状態 */
+.out_main_imag{
+  width: 100vw;
+}
+
 /* メイン */
 .main{
   display:flex;
