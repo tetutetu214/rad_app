@@ -1,11 +1,16 @@
-＜コンテンツ画面＞
-<div class="inner">
-<%# ログインしているときは以下を表示する %>
-  <%# <div class="greeting"> %>
-    <%# こんにちは、 %>
-    <%# <%= link_to "ユーザー名さん", root_path, class: :greeting__link%>
-  <%# </div> %>
-<%# // ログインしているときは上記を表示する %>
-  <div class="card__wrapper">
+<main class="main">
+  <div class="inner">
+    <div class="card__wrapper">
+      <div class="card">
+        <%= link_to image_tag(work.image, class: :card__img), prototype_path(work.id) %>
+        <div class="card__body">
+          <%= link_to "#{work.title}", work_path(work.id), class: :card__title %>
+          <p class="card__summary">
+            <%= "#{work.info}" %>
+          </p>
+          <%= link_to "by #{work.user.name}", "/users/#{work.user.id}", class: :card__user %>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</main>
