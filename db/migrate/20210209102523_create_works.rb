@@ -4,7 +4,7 @@ class CreateWorks < ActiveRecord::Migration[6.0]
       t.string :title,         null: false
       t.text   :info          
       t.string :category       
-      t.string :url
+      t.string :url,null: false
       t.references :user,  foreign_key: true
       t.timestamps
     end
