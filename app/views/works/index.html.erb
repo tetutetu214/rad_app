@@ -1,0 +1,9 @@
+<main class="main">
+  <% if user_signed_in? %>
+    <%= render "render/menu_works" %>
+    <%= render "render/main_works" %>
+    <%= render "render/comment_works" %>
+  <% else %>
+    <%= render "render/signed_out"%>
+  <% end %>
+</main>
